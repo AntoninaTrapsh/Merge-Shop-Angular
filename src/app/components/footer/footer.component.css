@@ -1,0 +1,31 @@
+footer {
+  background: black;
+  padding: 20px 0;
+}
+
+.footer {
+  color: white;
+}
+
+.footer__element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__address {
+  text-align: center;
+}
+
+.footer__mail {
+  margin: 0;
+}
+
+@media (max-width: 490px) {
+  .footer__element {
+    flex-direction: column;
+  }
+  .footer__address {
+    margin-top: 15px;
+  }
+}
