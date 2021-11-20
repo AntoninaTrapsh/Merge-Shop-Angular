@@ -7,11 +7,11 @@
           <div class="modal__contain">
             <div *ngFor="let item of productItems" class="modal__item">
               <p class="modal-item__name">{{item.name}}</p>
-              <button class="modal-item__button-increase">+</button>
+              <button (click)="changeQuantity(item.name, Actions.INCREASE)" class="modal-item__button-increase">+</button>
               <p class="modal-item__quantity">{{item.quantity}}</p>
-              <button class="modal-item__button-decrease">-</button>
+              <button (click)="changeQuantity(item.name, Actions.DECREASE)" class="modal-item__button-decrease">-</button>
               <p class="modal-item__price">{{item.price}}</p>
-              <button class="modal-item__button-delete">x</button>
+              <button (click)="deleteProduct(item.name)" class="modal-item__button-delete">x</button>
             </div>
           </div>
           <button data-close class="modal__btn">Купить</button>
