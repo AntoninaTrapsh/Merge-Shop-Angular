@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 interface CartProduct {
   name: string,
@@ -16,29 +18,28 @@ enum ChangeCountActions {
 })
 export class CartService {
 
-  constructor() { }
-
-  async loadProductsCart(): Promise<CartProduct[]> {
-    const response: Response = await fetch("http://localhost:3000/cart");
-    return await response.json();
+  constructor(private http: HttpClient) {
   }
 
-  async deleteProduct(name: string): Promise<CartProduct[]> {
-    const response = await fetch("http://localhost:3000/cart", {
-      method: "DELETE", body: JSON.stringify({name}), headers: {
-        "Content-Type": "application/json"
-      }
-    });
-      return response.json();
+  loadProductCart(): Observable<CartProduct[]> {
+    return this.http.get<CartProduct[]>("http://localhost:3000/cart");
   }
 
-  async changeQuantity(name: string, action: ChangeCountActions): Promise<CartProduct[]> {
-    const response = await fetch("http://localhost:3000/cart", {
-      method: "PATCH", body: JSON.stringify({name, action}), headers: {
+  deleteProduct(name: string) {
+    return this.http.delete<CartProduct[]>("http://localhost:3000/cart", {
+      body: {name}, headers: {
         "Content-Type": "application/json"
       }
-    });
-    return response.json();
+    })
+  }
 
+  changeQuantity(name: string, action: ChangeCountActions) {
+    return this.http.patch<CartProduct[]>("http://localhost:3000/cart",
+      {name, action},
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
   }
 }

@@ -19,6 +19,7 @@ enum ChangeCountActions {
 })
 export class CartComponent implements OnInit {
   @Output() deleteCart = new EventEmitter<void>();
+
   public productItems: CartProduct[] = [];
   public Actions = ChangeCountActions
 
@@ -26,22 +27,20 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cartService.loadProductsCart().then((data) => {
+    this.cartService.loadProductCart().subscribe((data) => {
       this.productItems = data
-    }).catch((e) => console.log(e))
+    });
   }
 
-  async deleteProduct(name: string) {
-   await this.cartService.deleteProduct(name)
-     .then((data: CartProduct[]) => {
-       this.productItems = data
-     })
-     .catch((e) => console.log(e));
+  deleteProduct(name: string) {
+   this.cartService.deleteProduct(name).subscribe((data) => {
+     this.productItems = data;
+   })
   }
 
-  async changeQuantity(name: string, action: ChangeCountActions): Promise<void> {
-    await this.cartService.changeQuantity(name, action)
-      .then((data: CartProduct[]) => this.productItems = data)
-      .catch((e)=>console.log(e));
+  changeQuantity(name: string, action: ChangeCountActions) {
+    this.cartService.changeQuantity(name, action).subscribe((data) => {
+      this.productItems = data;
+    })
   }
 }
