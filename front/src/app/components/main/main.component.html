@@ -6,7 +6,7 @@
           <p class="catalog__card-name">{{card.name}}</p>
           <img class="catalog__card-image" src="../../../assets/{{card.image}}" alt="" />
           <span class="catalog__card-price">{{card.price}}</span>
-          <button (click)="addToCart(card.name, card.price)" class="catalog__card-button">Купить</button>
+          <button (click)="productService.addToCart(card.name, card.price)" class="catalog__card-button">Купить</button>
         </div>
     </div>
   </section>
