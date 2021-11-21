@@ -15,7 +15,7 @@ export class ProductsService {
     return this.http.get<Product[]>("http://localhost:3000")
   }
 
-  addToCart(name: string, price: string) {
+  addToCart(name: string, price: string): void {
     this.http.post("http://localhost:3000/cart",
       {name, price, quantity: 1},
       { headers: {

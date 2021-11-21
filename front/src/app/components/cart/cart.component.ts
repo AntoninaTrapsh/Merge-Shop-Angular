@@ -22,13 +22,13 @@ export class CartComponent implements OnInit {
     }, ((e) => {console.log("Error!", e)}));
   }
 
-  deleteProduct(name: string) {
+  deleteProduct(name: string): void {
    this.cartService.deleteProduct(name).subscribe((data) => {
      this.productItems = data;
    }, ((e) => {console.log("Error!", e)}));
   }
 
-  changeQuantity(name: string, action: ChangeCountActions) {
+  changeQuantity(name: string, action: ChangeCountActions): void {
     this.cartService.changeQuantity(name, action).subscribe((data) => {
       this.productItems = data;
     }, ((e) => {console.log("Error!", e)}))

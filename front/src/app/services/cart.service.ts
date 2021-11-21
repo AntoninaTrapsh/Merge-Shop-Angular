@@ -16,7 +16,7 @@ export class CartService {
     return this.http.get<CartProduct[]>("http://localhost:3000/cart");
   }
 
-  deleteProduct(name: string) {
+  deleteProduct(name: string): Observable<CartProduct[]> {
     return this.http.delete<CartProduct[]>("http://localhost:3000/cart", {
       body: {name}, headers: {
         "Content-Type": "application/json"
@@ -24,7 +24,7 @@ export class CartService {
     })
   }
 
-  changeQuantity(name: string, action: ChangeCountActions) {
+  changeQuantity(name: string, action: ChangeCountActions): Observable<CartProduct[]> {
     return this.http.patch<CartProduct[]>("http://localhost:3000/cart",
       {name, action},
       {
