@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.loadProducts().then((data) => {
+    this.productService.loadProducts().subscribe((data) => {
       this.products = data
     })
   }

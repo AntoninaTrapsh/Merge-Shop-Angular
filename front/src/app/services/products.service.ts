@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 interface Product {
   name: string,
@@ -11,19 +13,19 @@ interface Product {
 })
 export class ProductsService {
 
-  constructor() { }
-
-  async loadProducts(): Promise<Product[]> {
-    const response: Response = await fetch("http://localhost:3000");
-    return await response.json();
+  constructor(private http: HttpClient) {
   }
 
-  async addToCart(name: string, price: string) {
-    await fetch("http://localhost:3000/cart", {
-      method: "POST", body: JSON.stringify({name, price, quantity: 1}), headers: {
+  loadProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>("http://localhost:3000")
+  }
+
+  addToCart(name: string, price: string) {
+    this.http.post("http://localhost:3000/cart",
+      {name, price, quantity: 1},
+      { headers: {
         "Content-Type": "application/json"
       }
-    })
+    }).subscribe(() => {console.log("Success added!")})
   }
-
 }

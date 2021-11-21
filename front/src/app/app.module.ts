@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {HeaderComponent} from "./components/header/header.component";
-import { MainComponent } from './components/main/main.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CartComponent } from './components/cart/cart.component';
+import {MainComponent} from './components/main/main.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {CartComponent} from './components/cart/cart.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,9 +17,11 @@ import { CartComponent } from './components/cart/cart.component';
     CartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
