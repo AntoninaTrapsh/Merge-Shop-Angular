@@ -26,6 +26,6 @@ export class ProductsService {
       { headers: {
         "Content-Type": "application/json"
       }
-    }).subscribe(() => {console.log("Success added!")})
+    }).subscribe(() => {console.log("Success added!")}, (e) => {console.log("Error!", e)})
   }
 }

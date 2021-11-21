@@ -29,18 +29,18 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.loadProductCart().subscribe((data) => {
       this.productItems = data
-    });
+    }, ((e) => {console.log("Error!", e)}));
   }
 
   deleteProduct(name: string) {
    this.cartService.deleteProduct(name).subscribe((data) => {
      this.productItems = data;
-   })
+   }, ((e) => {console.log("Error!", e)}));
   }
 
   changeQuantity(name: string, action: ChangeCountActions) {
     this.cartService.changeQuantity(name, action).subscribe((data) => {
       this.productItems = data;
-    })
+    }, ((e) => {console.log("Error!", e)}))
   }
 }
