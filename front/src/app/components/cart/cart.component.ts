@@ -1,4 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {CartService} from "../../services/cart.service";
 
 interface CartProduct {
   name: string,
@@ -21,38 +22,25 @@ export class CartComponent implements OnInit {
   public productItems: CartProduct[] = [];
   public Actions = ChangeCountActions
 
-  constructor() {
+  constructor(private cartService: CartService) {
   }
 
   ngOnInit(): void {
-    this.loadProductsCart().then((data) => {
+    this.cartService.loadProductsCart().then((data) => {
       this.productItems = data
     }).catch((e) => console.log(e))
   }
 
-  async loadProductsCart(): Promise<CartProduct[]> {
-    const response: Response = await fetch("http://localhost:3000/cart");
-    return await response.json();
+  async deleteProduct(name: string) {
+   await this.cartService.deleteProduct(name)
+     .then((data: CartProduct[]) => {
+       this.productItems = data
+     })
+     .catch((e) => console.log(e));
   }
 
-  deleteProduct(name: string): void {
-    fetch("http://localhost:3000/cart", {
-      method: "DELETE", body: JSON.stringify({name}), headers: {
-        "Content-Type": "application/json"
-      }
-    }).then((response) => response.json())
-      .then((data: CartProduct[]) => {
-        this.productItems = data
-      })
-      .catch((e) => console.log(e))
-  }
-
-  changeQuantity(name: string, action: ChangeCountActions): void {
-    fetch("http://localhost:3000/cart", {
-      method: "PATCH", body: JSON.stringify({name, action}), headers: {
-        "Content-Type": "application/json"
-      }
-    }).then((response: Response)=>response.json())
+  async changeQuantity(name: string, action: ChangeCountActions): Promise<void> {
+    await this.cartService.changeQuantity(name, action)
       .then((data: CartProduct[]) => this.productItems = data)
       .catch((e)=>console.log(e));
   }
