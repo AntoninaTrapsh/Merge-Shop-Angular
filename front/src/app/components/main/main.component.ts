@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductsService} from "../../services/products.service";
-interface Product {
-  name: string,
-  price: string,
-  image: string,
-}
+import {Product} from "../../models/product.model";
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

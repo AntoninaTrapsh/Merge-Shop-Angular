@@ -1,16 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {CartService} from "../../services/cart.service";
-
-interface CartProduct {
-  name: string,
-  price: number,
-  quantity: number
-}
-
-enum ChangeCountActions {
-  INCREASE = "increase",
-  DECREASE = "decrease"
-}
+import {CartProduct, ChangeCountActions} from "../../models/product.model";
 
 @Component({
   selector: 'app-cart',

@@ -1,17 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {CartProduct, ChangeCountActions} from "../models/product.model";
 
-interface CartProduct {
-  name: string,
-  price: number,
-  quantity: number
-}
-
-enum ChangeCountActions {
-  INCREASE = "increase",
-  DECREASE = "decrease"
-}
 
 @Injectable({
   providedIn: 'root'
