@@ -1,0 +1,14 @@
+.social {
+  margin: 200px auto;
+  text-align: center;
+}
+.social img {
+  max-width: 100px;
+  transition: 0.3s;
+  margin-top: 30px;
+}
+
+.social img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}

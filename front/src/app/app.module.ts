@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import {FormsModule} from "@angular/forms";
 import { DetailsComponent } from './components/details/details.component';
 import { BuyButtonComponent } from './components/buy-button/buy-button.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BuyButtonComponent } from './components/buy-button/buy-button.component
     ErrorComponent,
     HomeComponent,
     DetailsComponent,
-    BuyButtonComponent
+    BuyButtonComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
