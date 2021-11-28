@@ -9,6 +9,7 @@ import {Product} from "../../models/product.model";
 })
 export class MainComponent implements OnInit {
   public products: Product[] = [];
+  public searchValue: string = "";
 
   constructor(public productService: ProductsService) {
   }
@@ -17,5 +18,11 @@ export class MainComponent implements OnInit {
     this.productService.loadProducts().subscribe((data) => {
       this.products = data
     })
+  }
+
+  searchProduct() {
+    this.productService.searchProduct(this.searchValue).subscribe((data) => {
+      this.products = data;
+    });
   }
 }

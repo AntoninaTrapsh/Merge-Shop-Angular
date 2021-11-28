@@ -3,7 +3,7 @@ const cartProducts = require('../database/cart-products');
 
 const router = new Router();
 
-router.get('/', async (_request, response) => {
+router.get('/', async (request, response) => {
     const cartContain = await cartProducts.getAllCart();
     response.json(cartContain);
 });

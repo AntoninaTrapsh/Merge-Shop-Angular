@@ -7,6 +7,11 @@ import {MainComponent} from './components/main/main.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {CartComponent} from './components/cart/cart.component';
 import {HttpClientModule} from "@angular/common/http";
+import {AppRouterModule} from "./app-router.module";
+import { ErrorComponent } from './components/error/error.component';
+import { HomeComponent } from './components/home/home.component';
+import {FormsModule} from "@angular/forms";
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +19,16 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    ErrorComponent,
+    HomeComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRouterModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

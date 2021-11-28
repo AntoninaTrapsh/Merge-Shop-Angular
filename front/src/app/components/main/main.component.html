@@ -1,13 +1,18 @@
 <main>
   <section class="merch wrap">
     <h1>Каталог товаров</h1>
+    <div class="merch__form">
+      <input [(ngModel)]="searchValue"/>
+      <button class="search" (click)="searchProduct()">🔍</button>
+    </div>
     <div class="merch__catalog">
-        <div *ngFor="let card of products" class="catalog__card">
-          <p class="catalog__card-name">{{card.name}}</p>
-          <img class="catalog__card-image" src="../../../assets/{{card.image}}" alt="" />
-          <span class="catalog__card-price">{{card.price}}</span>
-          <button (click)="productService.addToCart(card.name, card.price)" class="catalog__card-button">Купить</button>
-        </div>
+      <div *ngFor="let card of products" class="catalog__card">
+        <p class="catalog__card-name">{{card.name}}</p>
+        <img class="catalog__card-image" src="../../../assets/{{card.image}}" alt=""/>
+        <span  class="catalog__card-details"><a [routerLink]="['/catalog', card.name]">Подробнее о товаре</a></span>
+        <span class="catalog__card-price">{{card.price}}₽</span>
+        <button (click)="productService.addToCart(card.name, card.price)" class="catalog__card-button">Купить</button>
+      </div>
     </div>
   </section>
 </main>

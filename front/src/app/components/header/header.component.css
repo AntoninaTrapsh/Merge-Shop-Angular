@@ -46,12 +46,30 @@ svg:hover .active-path {
   fill: #ff3c00;
 }
 
+nav li a:hover {
+  color: #ff3c00;
+}
+
 nav li {
   margin-right: 10px;
 }
 nav li:hover {
   transition: 0.5s;
   transform: scale(1.05);
+  cursor: pointer;
+}
+
+.active:hover {
+  transition: none !important;
+  transform: none !important;
+}
+
+.active a {
+  color: #c70303;
+}
+
+.active a:hover {
+  color: #c70303 !important;
 }
 
 object {

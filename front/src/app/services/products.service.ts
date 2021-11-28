@@ -23,4 +23,20 @@ export class ProductsService {
       }
     }).subscribe(() => {console.log("Success added!")}, (e) => {console.log("Error!", e)})
   }
+
+  searchProduct(search: string) {
+    return this.http.get<Product[]>("http://localhost:3000/catalog", {
+      params: {
+        search
+      }
+    });
+  }
+
+  detailsProduct(item: string) {
+    return this.http.get<Product[]>("http://localhost:3000/catalog/product", {
+      params: {
+        item
+      }
+    });
+  }
 }

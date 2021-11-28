@@ -55,9 +55,42 @@ main {
 .catalog__card button:hover {
   transform: scale(0.9);
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .catalog__card img {
   height: auto;
   max-width: 100%;
+}
+.catalog__card-details a{
+  color: black;
+}
+.catalog__card-details {
+  color: black;
+  transition: 0.3s;
+
+}
+
+.catalog__card-details:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+.merch__form {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.search {
+  background-color: #c70303;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.search:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  cursor: pointer;
 }

@@ -2,46 +2,55 @@
   {
     "name": "Футболка",
     "price": "900",
-    "image": "img/t-shirt.jpg"
+    "image": "img/t-shirt.jpg",
+    "description": "Красная футболка в черный горошек с принтом Леди Баг"
   },
   {
     "name": "Рюкзак",
     "price": "1500",
-    "image": "img/bag.jpg"
+    "image": "img/bag.jpg",
+    "description": "Красный вместительный школьный рюкзак в черный горошек"
   },
   {
     "name": "Посуда",
     "price": "800",
-    "image": "img/dishes.jpg"
+    "image": "img/dishes.jpg",
+    "description": "Набор посуды из кружки, тарелки и миски с принтом Леди Баг"
   },
   {
     "name": "Украшение",
     "price": "500",
-    "image": "img/decorations.jpg"
+    "image": "img/decorations.jpg",
+    "description": "Талисман удачи Леди Баг, браслет и подвеска"
   },
   {
     "name": "Маска",
     "price": "250",
-    "image": "img/mask.jpg"
+    "image": "img/mask.jpg",
+    "description": "Красная маска в черный горошек"
   },
   {
     "name": "Брелок",
     "price": "400",
-    "image": "img/keychains.jpg"
+    "image": "img/keychains.jpg",
+    "description": "Брелки с принтами талиманов удачи Леди Баг и Супер Кота"
   },
   {
     "name": "Фартук",
     "price": "700",
-    "image": "img/apron.jpg"
+    "image": "img/apron.jpg",
+    "description": "Фартук для кулинарии с принтом Леди Баг"
   },
   {
     "name": "Фигурка",
     "price": "650",
-    "image": "img/toy-figure.jpg"
+    "image": "img/toy-figure.jpg",
+    "description": "Коллекционная фигурка Леди Баг"
   },
   {
     "name": "Подушка",
     "price": "1300",
-    "image": "img/pillow.png"
+    "image": "img/pillow.png",
+    "description": "Подушка с принтом Леди Баг и Супер Кота"
   }
 ]

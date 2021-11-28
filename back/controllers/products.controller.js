@@ -8,4 +8,16 @@ router.get('/', async(_request, response) => {
     response.json(products);
 });
 
+router.get('/catalog', async (request, response) => {
+    const searchValue = decodeURI(request.query.search);
+    const products = await productsDatabase.searchProduct(searchValue);
+    response.json(products);
+});
+
+router.get('/catalog/product', async (request, response) => {
+    const detailsValue = decodeURI(request.query.item);
+    const product = await productsDatabase.detailsProduct(detailsValue);
+    response.json(product);
+});
+
 module.exports = router;
