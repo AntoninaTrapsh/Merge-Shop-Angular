@@ -12,11 +12,11 @@ export class ProductsService {
   }
 
   loadProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>("http://localhost:3000")
+    return this.http.get<Product[]>("/api")
   }
 
   addToCart(name: string, price: string): void {
-    this.http.post("http://localhost:3000/cart",
+    this.http.post("/api/cart",
       {name, price, quantity: 1},
       { headers: {
         "Content-Type": "application/json"
@@ -25,7 +25,7 @@ export class ProductsService {
   }
 
   searchProduct(search: string) {
-    return this.http.get<Product[]>("http://localhost:3000/catalog", {
+    return this.http.get<Product[]>("/api/catalog", {
       params: {
         search
       }
@@ -33,7 +33,7 @@ export class ProductsService {
   }
 
   detailsProduct(item: string) {
-    return this.http.get<Product[]>("http://localhost:3000/catalog/product", {
+    return this.http.get<Product[]>("/catalog/product", {
       params: {
         item
       }

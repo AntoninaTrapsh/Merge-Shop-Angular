@@ -10,9 +10,9 @@ const server = express();
 
 server.use(express.static(path.resolve(__dirname, 'styles')));
 
-server.use(cors({
-    origin: "*"
-}));
+// server.use(cors({
+//     origin: "*"
+// }));
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
