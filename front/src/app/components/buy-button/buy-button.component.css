@@ -1,0 +1,19 @@
+.catalog__card-button {
+  color: white;
+  background-color: red;
+  border: none;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.catalog__card-button:hover {
+  transform: scale(0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
