@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import { DetailsComponent } from './components/details/details.component';
 import { BuyButtonComponent } from './components/buy-button/buy-button.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     HomeComponent,
     DetailsComponent,
     BuyButtonComponent,
-    ContactsComponent
+    ContactsComponent,
+    AccessComponent
   ],
   imports: [
     BrowserModule,

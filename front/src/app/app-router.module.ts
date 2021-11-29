@@ -6,11 +6,14 @@ import {ErrorComponent} from "./components/error/error.component";
 import {HomeComponent} from "./components/home/home.component";
 import {DetailsComponent} from "./components/details/details.component";
 import {ContactsComponent} from "./components/contacts/contacts.component";
+import {AuthGuard} from "./auth.guard";
+import {AccessComponent} from "./components/access/access.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'catalog', component: MainComponent},
-  {path: 'catalog/:item', component: DetailsComponent},
+  {path: 'catalog', component: MainComponent, canActivate: [AuthGuard]},
+  {path: 'catalog/:item', component: DetailsComponent, canActivate: [AuthGuard]},
+  {path: 'auth', component: AccessComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: '**', component: ErrorComponent}
 ];

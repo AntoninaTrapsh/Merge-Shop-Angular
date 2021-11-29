@@ -72,6 +72,19 @@ nav li:hover {
   color: #c70303 !important;
 }
 
+.btn {
+  border-radius: 10px;
+  font-family: Lobster;
+  transition: 0.3s;
+
+}
+
+.btn:hover {
+  transform: scale(0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
 object {
   pointer-events: none;
 }

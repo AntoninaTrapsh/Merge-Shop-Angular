@@ -10,6 +10,8 @@
         </li>
         <li routerLinkActive="active"><a [routerLink]="['/catalog']">Каталог</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/contacts']">Контакты</a></li>
+        <li><button (click)="auth.login()" class="btn login">Войти</button></li>
+        <li><button (click)="auth.logout()" class="btn logout">Выйти</button></li>
         <li (click)="createCart.emit()">
           <span>
             <object

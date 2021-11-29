@@ -1,4 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {AuthService} from "../../auth.service";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() createCart = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
   }
