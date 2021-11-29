@@ -37,7 +37,7 @@ export class ProductsService {
   }
 
   detailsProduct(item: string): Observable<Product[]> {
-    return this.http.get<Product[]>("/catalog/product", {
+    return this.http.get<Product[]>("/api/catalog/product", {
       params: {
         item
       }
