@@ -7,14 +7,16 @@ export class AuthService {
   private isAuth: boolean = false;
   constructor() { }
 
-  login() {
-    this.isAuth = true;
-    alert("Вы успешно авторизировались");
-  }
-
-  logout() {
-    this.isAuth = false;
-    alert("Вы успешно вышли из системы");
+  checkAuth() {
+    if (this.isAuth) {
+      this.isAuth = false;
+      alert("Вы успешно вышли из системы");
+      return;
+    } else {
+      this.isAuth = true;
+      alert("Вы успешно авторизировались");
+      return;
+    }
   }
 
   isAuthenticated(): Promise<boolean> {
