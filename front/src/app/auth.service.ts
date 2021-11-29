@@ -7,7 +7,7 @@ export class AuthService {
   private isAuth: boolean = false;
   constructor() { }
 
-  checkAuth() {
+  checkAuth(): void {
     if (this.isAuth) {
       this.isAuth = false;
       alert("Вы успешно вышли из системы");

@@ -24,7 +24,7 @@ export class CartService {
     return this.cartContain$;
   }
 
-  toCountProducts(products: CartProduct[]) {
+  toCountProducts(products: CartProduct[]): void {
     let quantity = 0;
     for (let product of products) {
       quantity += product.quantity;

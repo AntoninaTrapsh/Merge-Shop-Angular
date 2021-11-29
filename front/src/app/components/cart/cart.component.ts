@@ -25,7 +25,7 @@ export class CartComponent implements OnInit, OnDestroy {
     }, ((e) => {console.log("Error!", e)}));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.loadCart.unsubscribe();
   }
 

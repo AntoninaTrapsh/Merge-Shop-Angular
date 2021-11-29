@@ -28,7 +28,7 @@ export class ProductsService {
     }, (e) => {console.log("Error!", e)})
   }
 
-  searchProduct(search: string) {
+  searchProduct(search: string):Observable<Product[]> {
     return this.http.get<Product[]>("/api/catalog", {
       params: {
         search
@@ -36,7 +36,7 @@ export class ProductsService {
     });
   }
 
-  detailsProduct(item: string) {
+  detailsProduct(item: string): Observable<Product[]> {
     return this.http.get<Product[]>("/catalog/product", {
       params: {
         item

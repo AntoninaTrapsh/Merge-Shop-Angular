@@ -29,7 +29,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   }
 
-  searchProduct() {
+  searchProduct(): void {
     this.productService.searchProduct(this.searchValue).pipe(
       take(1),
     ).subscribe((data) => {
