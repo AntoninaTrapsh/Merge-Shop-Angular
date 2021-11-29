@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Product} from "../models/product.model";
+import {CartProduct, Product} from "../models/product.model";
+import {CartService} from "./cart.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cartService: CartService) {
   }
 
   loadProducts(): Observable<Product[]> {
@@ -16,12 +17,15 @@ export class ProductsService {
   }
 
   addToCart(name: string, price: string): void {
-    this.http.post("/api/cart",
+    this.http.post<CartProduct[]>("/api/cart",
       {name, price, quantity: 1},
       { headers: {
         "Content-Type": "application/json"
       }
-    }).subscribe(() => {console.log("Success added!")}, (e) => {console.log("Error!", e)})
+    }).subscribe((data) => {
+      console.log("Success added!");
+      this.cartService.toCountProducts(data);
+    }, (e) => {console.log("Error!", e)})
   }
 
   searchProduct(search: string) {

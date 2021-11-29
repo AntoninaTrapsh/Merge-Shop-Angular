@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, ReplaySubject, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {CartProduct, ChangeCountActions} from "../models/product.model";
+import {CartProduct, ChangeCountActions, Product} from "../models/product.model";
+import {map} from "rxjs/operators";
 
 
 @Injectable({
@@ -9,11 +10,33 @@ import {CartProduct, ChangeCountActions} from "../models/product.model";
 })
 export class CartService {
 
+  private countProduct$: Subject<number> = new Subject();
+  private cartContain$: ReplaySubject<CartProduct[]> = new ReplaySubject(1);
+
   constructor(private http: HttpClient) {
   }
 
-  loadProductCart(): Observable<CartProduct[]> {
-    return this.http.get<CartProduct[]>("/api/cart");
+  getCountProduct(): Subject<number> {
+    return this.countProduct$;
+  }
+
+  getProductCart(): ReplaySubject<CartProduct[]> {
+    return this.cartContain$;
+  }
+
+  toCountProducts(products: CartProduct[]) {
+    let quantity = 0;
+    for (let product of products) {
+      quantity += product.quantity;
+    }
+    this.countProduct$.next(quantity);
+  }
+
+  loadProductCart(): void {
+    this.http.get<CartProduct[]>("/api/cart").subscribe((data) => {
+      this.toCountProducts(data);
+      this.cartContain$.next(data);
+    });
   }
 
   deleteProduct(name: string): Observable<CartProduct[]> {

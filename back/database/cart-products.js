@@ -19,7 +19,7 @@ const cartProducts = {
             if (product.name.trim() && product.price && product.quantity) {
                 products.push(product);
                 await writeJsonFile(FILE_PATH, products);
-                return {quantity: product.quantity, price: product.price};
+                return products;
             } else {
                 throw new Error("Empty fields.");
             }

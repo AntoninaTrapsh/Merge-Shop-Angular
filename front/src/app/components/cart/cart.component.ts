@@ -20,7 +20,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadCart = this.cartService.loadProductCart().subscribe((data) => {
+    this.loadCart = this.cartService.getProductCart().subscribe((data) => {
       this.productItems = data
     }, ((e) => {console.log("Error!", e)}));
   }
@@ -34,6 +34,7 @@ export class CartComponent implements OnInit, OnDestroy {
      take(1)
    ).subscribe((data) => {
      this.productItems = data;
+     this.cartService.toCountProducts(data);
    }, ((e) => {console.log("Error!", e)}));
   }
 
@@ -42,6 +43,7 @@ export class CartComponent implements OnInit, OnDestroy {
       take(1)
     ).subscribe((data) => {
       this.productItems = data;
+      this.cartService.toCountProducts(data);
     }, ((e) => {console.log("Error!", e)}))
   }
 }
