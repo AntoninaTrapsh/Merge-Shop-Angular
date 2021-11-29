@@ -9,10 +9,12 @@ export class AuthService {
 
   login() {
     this.isAuth = true;
+    alert("Вы успешно авторизировались");
   }
 
   logout() {
     this.isAuth = false;
+    alert("Вы успешно вышли из системы");
   }
 
   isAuthenticated(): Promise<boolean> {
