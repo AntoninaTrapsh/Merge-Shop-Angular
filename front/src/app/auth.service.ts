@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
+import {BehaviorSubject, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private isAuth: boolean = false;
+  private isAuth$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor() { }
 
+  getAuthState():BehaviorSubject<boolean> {
+    return this.isAuth$
+  }
+
   checkAuth(): void {
-    if (this.isAuth) {
-      this.isAuth = false;
+    if (this.isAuth$.getValue()) {
+      this.isAuth$.next(false);
       alert("Вы успешно вышли из системы");
       return;
     } else {
-      this.isAuth = true;
+      this.isAuth$.next(true);
       alert("Вы успешно авторизировались");
       return;
     }
-  }
-
-  isAuthenticated(): Promise<boolean> {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(this.isAuth)
-      }, 1000)
-    })
   }
 }
