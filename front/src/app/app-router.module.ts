@@ -10,11 +10,11 @@ import {AuthGuard} from "./auth.guard";
 import {AccessComponent} from "./components/access/access.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'catalog', component: MainComponent, canActivate: [AuthGuard]},
   {path: 'catalog/:item', component: DetailsComponent, canActivate: [AuthGuard]},
+  {path: 'catalog', component: MainComponent, canActivate: [AuthGuard]},
   {path: 'auth', component: AccessComponent},
   {path: 'contacts', component: ContactsComponent},
+  {path: '', component: HomeComponent},
   {path: '**', component: ErrorComponent}
 ];
 

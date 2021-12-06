@@ -24,7 +24,7 @@ const productsDatabase = {
         const products = await this.getAllCatalog();
         for (let item of products) {
            if (item.name === detailsValue) {
-               return [item];
+               return item;
            }
         }
         throw new Error("Not Found");

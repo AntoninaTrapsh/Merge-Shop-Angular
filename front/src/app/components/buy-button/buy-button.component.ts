@@ -8,7 +8,7 @@ import {ProductsService} from "../../services/products.service";
 })
 export class BuyButtonComponent implements OnInit {
 
-  constructor(public productService: ProductsService) { }
+  constructor() { }
 
   @Output() buyProduct = new EventEmitter<void>();
 

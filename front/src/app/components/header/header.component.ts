@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   quantityProduct:number = 0;
   private cart: Subscription = new Subscription();
 
-  @Output() createCart = new EventEmitter<void>();
+  @Output() openCart = new EventEmitter<void>();
 
   constructor(public auth: AuthService, private cartService: CartService) { }
 

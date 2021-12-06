@@ -1,9 +1,9 @@
 <div class="container">
-  <app-header (createCart)="openCart()" ></app-header>
+  <app-header (openCart)="changeCartState()"></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>
 
 <div *ngIf=cartIsOpen>
-  <app-cart (deleteCart)="closeCart()"></app-cart>
+  <app-cart (closeCart)="changeCartState()"></app-cart>
 </div>

@@ -24,7 +24,7 @@ export class ProductsService {
       }
     }).subscribe((data) => {
       console.log("Success added!");
-      this.cartService.toCountProducts(data);
+      this.cartService.totalProducts(data);
     }, (e) => {console.log("Error!", e)})
   }
 
@@ -36,8 +36,8 @@ export class ProductsService {
     });
   }
 
-  detailsProduct(item: string): Observable<Product[]> {
-    return this.http.get<Product[]>("/api/catalog/product", {
+  detailsProduct(item: string): Observable<Product> {
+    return this.http.get<Product>("/api/catalog/product", {
       params: {
         item
       }

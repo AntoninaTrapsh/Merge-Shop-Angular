@@ -10,7 +10,7 @@ import {take} from "rxjs/operators";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit, OnDestroy {
-  @Output() deleteCart = new EventEmitter<void>();
+  @Output() closeCart = new EventEmitter<void>();
 
   public productItems: CartProduct[] = [];
   public Actions = ChangeCountActions;
@@ -20,6 +20,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.cartService.loadProductCart();
     this.loadCart = this.cartService.getProductCart().subscribe((data) => {
       this.productItems = data
     }, ((e) => {console.log("Error!", e)}));
@@ -34,7 +35,7 @@ export class CartComponent implements OnInit, OnDestroy {
      take(1)
    ).subscribe((data) => {
      this.productItems = data;
-     this.cartService.toCountProducts(data);
+     this.cartService.totalProducts(data);
    }, ((e) => {console.log("Error!", e)}));
   }
 
@@ -43,7 +44,7 @@ export class CartComponent implements OnInit, OnDestroy {
       take(1)
     ).subscribe((data) => {
       this.productItems = data;
-      this.cartService.toCountProducts(data);
+      this.cartService.totalProducts(data);
     }, ((e) => {console.log("Error!", e)}))
   }
 }

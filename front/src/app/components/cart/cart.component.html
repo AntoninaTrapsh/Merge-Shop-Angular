@@ -2,7 +2,7 @@
     <div class="modal__window">
       <div class="modal__dialog">
         <div class="modal__content">
-          <div (click)="deleteCart.emit()" data-close class="modal__close">&times;</div>
+          <div (click)="closeCart.emit()" data-close class="modal__close">&times;</div>
           <div class="modal__title">Корзина</div>
           <div class="modal__contain">
             <div *ngFor="let item of productItems" class="modal__item">

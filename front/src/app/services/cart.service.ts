@@ -24,7 +24,7 @@ export class CartService {
     return this.cartContain$;
   }
 
-  toCountProducts(products: CartProduct[]): void {
+  totalProducts(products: CartProduct[]): void {
     let quantity = 0;
     for (let product of products) {
       quantity += product.quantity;
@@ -34,7 +34,7 @@ export class CartService {
 
   loadProductCart(): void {
     this.http.get<CartProduct[]>("/api/cart").subscribe((data) => {
-      this.toCountProducts(data);
+      this.totalProducts(data);
       this.cartContain$.next(data);
     });
   }

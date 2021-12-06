@@ -18,12 +18,8 @@ export class AppComponent implements OnInit{
      this.cartService.loadProductCart();
   }
 
-  openCart(): void {
-    this.cartIsOpen = true;
-  }
-
-  closeCart(): void {
-    this.cartIsOpen = false;
+  changeCartState(): void {
+    this.cartIsOpen = !this.cartIsOpen;
   }
 
 }

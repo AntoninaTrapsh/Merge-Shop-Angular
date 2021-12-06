@@ -9,7 +9,7 @@ import {Product} from "../../models/product.model";
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  product: Product[] = [];
+  product: Product;
   constructor(public productService: ProductsService, public activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
